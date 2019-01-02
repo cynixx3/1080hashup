@@ -1,0 +1,33 @@
+#!/bin/bash
+# Scritp by cYnIxX3
+# Run with source <(curl -s http://thecynix.com/install-ethpill.txt) (-i | -d | -r)
+if [ -z "$1" ] || [[ "$1" =~ "-i" ]] ; then
+  if [ ! -f /opt/ethos/bin/OhGodAnETHlargementPill ] ; then 
+    wget http://thecynix.com/OhGodAnETHlargementPill -O /opt/ethos/bin/OhGodAnETHlargementPill
+    if ! echo "12322fdd5b841e5e89add0523e8bd6567de7e73867455a9232473a3b4951b03e  /opt/ethos/bin/OhGodAnETHlargementPill" | sha256sum -c ; then
+      echo "Download verification failed."
+      exit 1
+    fi
+    chmod +x /opt/ethos/bin/OhGodAnETHlargementPill
+  fi
+  if [ $(grep -c "OhGodAnETHlargementPill" /home/ethos/custom.sh) -eq "0" ]; then
+    sed 's,exit 0,sudo /opt/ethos/bin/OhGodAnETHlargementPill \&\nexit 0,' -i /home/ethos/custom.sh
+  else
+    sed '/Pill/ s,^#,,' -i /home/ethos/custom.sh
+  fi
+  if ! ps aux | grep -v grep | grep "ETHlargement" >/dev/null ; then
+    sudo /opt/ethos/bin/OhGodAnETHlargementPill 2>&1 >/dev/null &
+  fi
+  echo "1080 / 1080 TI Hash upgrade for eth Installed and started."
+elif [[ $1 =~ "-d" ]] ; then
+  sudo killall -9 OhGodAnETHlargementPill
+  sed '/Pill/ s,^s,#s,' -i /home/ethos/custom.sh
+  echo "1080 / 1080 TI Hash upgrade for eth stopped and prevented from starting on next boot."
+elif [[ $1 =~ "-r" ]] ; then
+  sudo killall -9 OhGodAnETHlargementPill
+  sed '/Pill/d' -i /home/ethos/custom.sh
+  rm -f /opt/ethos/bin/OhGodAnETHlargementPill
+  echo "1080 / 1080 TI Hash upgrade for eth stopped and removed from the system"
+else
+  echo "Either run the command alone to install, with -d to disable, or with -r to remove Nothing else is helpful."
+fi
