@@ -1,6 +1,6 @@
 #!/bin/bash
-# Script by cYnIxX3 Original at http://thecynix.com/install-ethpill.txt
-# Run with `source <(curl -s https://raw.githubusercontent.com/cynixx3/1080hashup/master/install-ethpill.txt) (install | -i | disable | -d | remove | -r)`
+# Script by cYnIxX3 to install, disable, or remove OhGodAnETHlargementPill by OhGodACompany Original binaries no longer hosted officially, original install script at http://thecynix.com/install-ethpill.txt
+# Run with `source <(curl -s https://raw.githubusercontent.com/cynixx3/1080hashup/master/ethpill.txt) (install | -i | disable | -d | remove | -r)`
 if  [[ "$1" =~ "install" ]] || [ -z "$1" ] || [[ "$1" =~ "-i" ]]  ; then
   if [ ! -f /opt/ethos/bin/OhGodAnETHlargementPill ] ; then 
     wget https://github.com/cynixx3/1080hashup/releases/download/2/ETHlargementPill-r2 -O /opt/ethos/bin/OhGodAnETHlargementPill
