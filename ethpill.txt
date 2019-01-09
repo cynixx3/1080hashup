@@ -8,8 +8,8 @@ if  [[ "$1" =~ "install" ]] || [ -z "$1" ] || [[ "$1" =~ "-i" ]]  ; then
       echo "Download verification failed."
       exit 1
     fi
-    chmod +x /opt/ethos/bin/OhGodAnETHlargementPill
   fi
+  chmod +x /opt/ethos/bin/OhGodAnETHlargementPill
   if [ $(grep -c "OhGodAnETHlargementPill" /home/ethos/custom.sh) -eq "0" ]; then
     sed 's,^exit 0$,sudo /opt/ethos/bin/OhGodAnETHlargementPill \&\nexit 0,' -i /home/ethos/custom.sh
   else
