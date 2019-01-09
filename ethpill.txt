@@ -4,7 +4,7 @@
 if  [[ "$1" =~ "install" ]] || [ -z "$1" ] || [[ "$1" =~ "-i" ]]  ; then
   if [ ! -f /opt/ethos/bin/OhGodAnETHlargementPill ] ; then 
     wget https://github.com/cynixx3/1080hashup/releases/download/2/ETHlargementPill-r2 -O /opt/ethos/bin/OhGodAnETHlargementPill
-    if ! echo "12322fdd5b841e5e89add0523e8bd6567de7e73867455a9232473a3b4951b03e  /opt/ethos/bin/OhGodAnETHlargementPill" | sha256sum -c ; then
+    if ! echo "6f731c2372faf51b26adc96d4e8a1437a515f4f78de8ad1ab81e63bf6d60056a  /opt/ethos/bin/OhGodAnETHlargementPill" | sha256sum -c ; then
       echo "Download verification failed."
       exit 1
     fi
