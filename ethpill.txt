@@ -11,7 +11,7 @@ if  [[ "$1" =~ "install" ]] || [ -z "$1" ] || [[ "$1" =~ "-i" ]]  ; then
     chmod +x /opt/ethos/bin/OhGodAnETHlargementPill
   fi
   if [ $(grep -c "OhGodAnETHlargementPill" /home/ethos/custom.sh) -eq "0" ]; then
-    sed 's,exit 0,sudo /opt/ethos/bin/OhGodAnETHlargementPill \&\nexit 0,' -i /home/ethos/custom.sh
+    sed 's,^exit 0$,sudo /opt/ethos/bin/OhGodAnETHlargementPill \&\nexit 0,' -i /home/ethos/custom.sh
   else
     sed '/Pill/ s,^#,,' -i /home/ethos/custom.sh
   fi
